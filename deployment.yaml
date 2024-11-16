@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: programas-estudios-backend
+  labels:
+    app: programas-estudios
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: programas-estudios
+  template:
+    metadata:
+      labels:
+        app: programas-estudios
+    spec:
+      containers:
+        - name: programas-estudios-backend
+          image: shirleyascencio/ms-studyprogramme-back
+          imagePullPolicy: IfNotPresent
+          resources:
+            limits:
+              cpu: "0.3"
+            requests:
+              cpu: "0.125"
+          ports:
+            - containerPort: 8086
+              protocol: TCP
+      restartPolicy: Always

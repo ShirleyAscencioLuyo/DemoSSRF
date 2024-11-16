@@ -1,0 +1,41 @@
+# Port
+server:
+    port: ${SERVER_PORT:8086}
+
+# spring boot configurations
+spring:
+    application:
+        name: vg-ms-study-programme
+    data:
+        mongodb:
+            uri: mongodb+srv://amirarbieto:n1230IGFtm6682Kj@artemiosolutions.pripjnm.mongodb.net/artemiosolutions?retryWrites=true&w=majority
+
+# services:
+     #   cetpro-profile:
+        #      url: http://localhost:8080/profile
+# http://localhost:8086/swagger-ui.html
+
+# Microservice health meter
+management:
+    endpoint:
+        health:
+            show-details: always
+
+# Endpoint de actuator
+
+api:
+    version: api/v1
+
+# Swagger
+springdoc:
+    swagger-ui:
+        path: /swagger-ui.html
+    api-docs:
+        path: /api/study-program
+
+# External services
+services:
+    cetpro-profile:
+        url: ${CETPRO_PROFILE_SERVICE_URL:https://vg-ms-profile-production.up.railway.app/management/api/v1/profile}
+
+#Demo Slack
